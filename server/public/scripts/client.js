@@ -1,3 +1,9 @@
+//!!!!!!!!!!!!!THINGS WE STILL NEED TO DO!!!!!!!!!!
+//get our post request working
+//make a "total guesses made indicator"
+//make a "maximum number indicator"
+
+
 console.log('JS Source');
 
 $(document).ready(function() {
@@ -45,16 +51,18 @@ var answer = randomNum();
 var highOrLow = [];
 
 function checkGuess() {
+
 //added for loop
-for(i = 0; i > arrayGuess.length; i += 1){
-  if (arrayGuess[i] < answer){
-    highOrLow.push("Too Low");
+  for(i = 0; i > arrayGuess.length; i += 1){
+    if (arrayGuess[i] < answer){
+      highOrLow.push("Too Low");
+    }
+    else if (arrayGuess[i] > answer){
+      highOrLow.push("Too High");
+    }
+     else {
+      highOrLow.push("Correct");
+    }
   }
-  else if (arrayGuess[i] > answer){
-    highOrLow.push("Too High");
-  }
-   else {
-    highOrLow.push("Correct");
-  }
-}
+
 }
