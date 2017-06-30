@@ -29,7 +29,7 @@ function gameSetup() {
                         '<button id="start">Start Game</button>');
 }// end gameSetup
 
-
+//request function
 function startGame() {
   console.log(parseInt($('#maxNumber').val()));
   var chosenMax = parseInt($('#maxNumber').val());
@@ -41,29 +41,19 @@ function startGame() {
     },
     success: function(response) {
       console.log(response);
-      
+      refreshData();//calling received function
     }
   });//end request
 } //end startGame
 
-
-var arrayGuess = [];
-// var answer = randomNum();
-var highOrLow = [];
-
-function checkGuess() {
-
-//added for loop
-  for(i = 0; i > arrayGuess.length; i += 1){
-    if (arrayGuess[i] < answer){
-      highOrLow.push("Too Low");
+//process request being received
+function refreshData() {
+  console.log('working');
+  $.ajax({
+    type: 'GET',
+    url: '/returnValue',
+    success: function(response) {
+      console.log(response);
     }
-    else if (arrayGuess[i] > answer){
-      highOrLow.push("Too High");
-    }
-     else {
-      highOrLow.push("Correct");
-    }
-  }
-
+  });
 }
