@@ -41,13 +41,14 @@ function startGame() {
     },
     success: function(response) {
       console.log(response);
+      
     }
   });//end request
 } //end startGame
 
 
 var arrayGuess = [];
-var answer = randomNum();
+// var answer = randomNum();
 var highOrLow = [];
 
 function checkGuess() {
